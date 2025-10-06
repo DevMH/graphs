@@ -16,3 +16,9 @@ gradle-app.setting
 
 /.idea/.gitignore
 /.idea/vcs.xml
+/.idea/compiler.xml
+/.idea/gradle.xml
+/.idea/modules/graphs.main.iml
+/.idea/modules/graphs.test.iml
+/.idea/misc.xml
+/.idea/modules.xml

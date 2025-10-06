@@ -15,3 +15,11 @@ logging:
   level:
     org.springframework.data.neo4j: INFO
     com.devmh.graphs: DEBUG
+
+graphs:
+  search:
+    fulltext:
+      enabled: true
+      indexName: ft_node_all
+      labels: Case,Docket,Person,Judge,Lawyer
+      properties: name,number,court,firm
