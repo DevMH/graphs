@@ -160,7 +160,7 @@ public interface GraphMapper {
         return n;
     }
 
-    private static GenericNode nodeFromPerson(Person p) {
+    static GenericNode nodeFromPerson(Person p) {
         List<String> labels = new ArrayList<>(List.of("Person"));
         Map<String,Object> props = new LinkedHashMap<>();
         props.put("name", p.getName());

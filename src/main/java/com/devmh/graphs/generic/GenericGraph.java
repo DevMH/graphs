@@ -12,6 +12,7 @@ import java.util.List;
 public class GenericGraph {
     @Builder.Default
     private List<GenericNode> nodes = new ArrayList<>();
+
     @Builder.Default
     private List<GenericRelationship> relationships = new ArrayList<>();
 }
