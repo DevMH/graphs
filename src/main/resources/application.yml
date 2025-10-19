@@ -4,6 +4,12 @@ spring:
     authentication:
       username: ${NEO4J_USER:neo4j}
       password: ${NEO4J_PASS:password}
+    pool:
+      max-connection-pool-size: 50
+      connection-acquisition-timeout: 60s
+  data:
+    neo4j:
+      database: neo4j
   jackson:
     serialization:
       INDENT_OUTPUT: true

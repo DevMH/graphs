@@ -11,6 +11,7 @@ import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.neo4j.driver.types.Node;
 import org.neo4j.driver.types.Relationship;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.neo4j.core.Neo4jClient;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,6 +22,7 @@ import java.util.*;
 @RequiredArgsConstructor
 public class TypedOpsService {
     private final GenericGraphService genericService;
+    @Qualifier("graphMapperImpl")
     private final GraphMapper mapper;
     private final Neo4jClient neo4j;
 
@@ -294,7 +296,7 @@ public class TypedOpsService {
         if (!indexOf.containsKey(id)) {
             GenericNode gn = new GenericNode();
             gn.setId(id);
-            gn.setLabels(new ArrayList<>(n.labels()));
+            gn.setLabels(new ArrayList<>((Collection) n.labels()));
             gn.setProps(new LinkedHashMap<>(n.asMap()));
             nodes.add(gn);
             indexOf.put(id, nodes.size()-1);

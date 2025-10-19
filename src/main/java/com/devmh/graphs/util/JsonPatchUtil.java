@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.fge.jsonpatch.JsonPatch;
 import com.github.fge.jsonpatch.JsonPatchException;
 
+import java.io.IOException;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -20,6 +21,8 @@ public class JsonPatchUtil {
             return MAPPER.treeToValue(patched, type);
         } catch (JsonPatchException | JsonProcessingException e) {
             throw new IllegalArgumentException("Invalid JSON Patch: " + e.getMessage(), e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -33,6 +36,8 @@ public class JsonPatchUtil {
             return MAPPER.treeToValue(patched, LinkedHashMap.class);
         } catch (JsonPatchException | JsonProcessingException e) {
             throw new IllegalArgumentException("Invalid JSON Patch for map: " + e.getMessage(), e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 }

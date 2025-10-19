@@ -36,4 +36,11 @@ dependencies {
 
 tasks.named('test') {
     useJUnitPlatform()
+
+    maxParallelForks = Runtime.runtime.availableProcessors().intdiv(2) ?: 1
+
+    testLogging {
+        events "passed", "skipped", "failed"
+        exceptionFormat "full"
+    }
 }
